@@ -6,6 +6,7 @@ import "./Blog.css";
 import { Route, Link, NavLink } from "react-router-dom";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
+import FullPost from "./FullPost/FullPost";
 
 //import axiosInstance from "../../axios";
 
@@ -43,6 +44,7 @@ class Blog extends Component {
         {/* <Route path="/" render={() => <h1>Home 2</h1>} /> */}
         <Route path='/' exact component={Posts} />
         <Route path='/new-post' component={NewPost} />
+        <Route path='/:postId' exact component={FullPost} />
         {/* <section>
           <FullPost id={this.state.selectedPostId} />
         </section>

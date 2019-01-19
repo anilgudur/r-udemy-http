@@ -3,6 +3,7 @@ import Post from "../../../components/Post/Post";
 //import axios from "axios";
 import axiosInstance from "../../../axios";
 import "./Posts.css";
+import { Link } from "react-router-dom";
 
 class Posts extends Component {
   state = {
@@ -12,7 +13,7 @@ class Posts extends Component {
   };
 
   componentDidMount() {
-    //console.log("[Posts] props: ", this.props);
+    console.log("[Posts] props: ", this.props);
     axiosInstance
       .get("/posts")
       .then(response => {
@@ -40,12 +41,13 @@ class Posts extends Component {
     if (!this.state.error) {
       posts = this.state.posts.map(post => {
         return (
-          <Post
-            key={post.id}
-            title={post.title}
-            author={post.author}
-            postClick={this.postClickHandler.bind(this, post.id)}
-          />
+          <Link to={"/" + post.id} key={post.id}>
+            <Post
+              title={post.title}
+              author={post.author}
+              postClick={this.postClickHandler.bind(this, post.id)}
+            />
+          </Link>
         );
       });
     }
