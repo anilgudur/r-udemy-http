@@ -19,7 +19,7 @@ class Blog extends Component {
             <ul>
               <li>
                 <NavLink
-                  to='/'
+                  to='/posts/'
                   exact
                   activeClassName='active'
                   activeStyle={{ color: "fa923f", textDecoration: "underline" }}
@@ -43,9 +43,9 @@ class Blog extends Component {
         </header>
         {/* <Route path="/" render={() => <h1>Home 2</h1>} /> */}
         <Switch>
-          <Route path='/' exact component={Posts} />
           <Route path='/new-post' component={NewPost} />
-          <Route path='/:postId' exact component={FullPost} />
+          <Route path='/posts' component={Posts} />
+          {/* <Route path='/:postId' exact component={FullPost} /> */}
         </Switch>
         {/* <section>
           <FullPost id={this.state.selectedPostId} />
