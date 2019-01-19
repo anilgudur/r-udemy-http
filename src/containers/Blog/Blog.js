@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import FullPost from "../../components/FullPost/FullPost";
 // import NewPost from "../../components/NewPost/NewPost";
 import "./Blog.css";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, NavLink } from "react-router-dom";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
 
@@ -12,15 +12,22 @@ import NewPost from "./NewPost/NewPost";
 class Blog extends Component {
   render() {
     return (
-      <div className="Blog">
+      <div className='Blog'>
         <header>
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  to='/'
+                  exact
+                  activeClassName='active'
+                  activeStyle={{ color: "fa923f", textDecoration: "underline" }}
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to={{
                     pathname: "/new-post",
                     hash: "#2",
@@ -28,14 +35,14 @@ class Blog extends Component {
                   }}
                 >
                   New Post
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>
         </header>
         {/* <Route path="/" render={() => <h1>Home 2</h1>} /> */}
-        <Route path="/" exact component={Posts} />
-        <Route path="/new-post" component={NewPost} />
+        <Route path='/' exact component={Posts} />
+        <Route path='/new-post' component={NewPost} />
         {/* <section>
           <FullPost id={this.state.selectedPostId} />
         </section>

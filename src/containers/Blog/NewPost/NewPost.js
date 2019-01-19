@@ -9,10 +9,6 @@ class NewPost extends Component {
     author: "Max"
   };
 
-  componentDidMount() {
-    console.log("[NewPost.js] this.props: ", this.props);
-  }
-
   savePostHandler() {
     const postData = {
       title: this.state.title,
@@ -20,8 +16,8 @@ class NewPost extends Component {
       author: this.state.author
     };
     axios.post("/posts", postData).then(response => {
-      //this.setState({ fullPostObj: response.data });
-      console.log("[NewPost] - savePostHandler - post: ", response);
+      this.setState({ fullPostObj: response.data });
+      //console.log("[NewPost] - savePostHandler - post: ", response);
     });
   }
 

@@ -1,9 +1,7 @@
 import React from "react";
 import "./Post.css";
-import { withRouter } from "react-router-dom";
 
 const post = props => {
-  console.log("[Post.js] props", props);
   return (
     <article className='Post' onClick={props.postClick}>
       <h1>{props.title}</h1>
@@ -14,4 +12,4 @@ const post = props => {
   );
 };
 
-export default withRouter(post);
+export default post;

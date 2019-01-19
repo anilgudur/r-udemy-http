@@ -12,7 +12,7 @@ class Posts extends Component {
   };
 
   componentDidMount() {
-    console.log("[Posts] props: ", this.props);
+    //console.log("[Posts] props: ", this.props);
     axiosInstance
       .get("/posts")
       .then(response => {
@@ -23,13 +23,13 @@ class Posts extends Component {
         this.setState({ posts: updatedPosts });
       })
       .catch(err => {
-        console.log("err: ", err);
+        //console.log("err: ", err);
         //this.setState({ error: true });
       });
   }
 
   postClickHandler = id => {
-    console.log("id: ", id);
+    //console.log("id: ", id);
     this.setState({ selectedPostId: id });
   };
 
