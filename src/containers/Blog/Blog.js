@@ -43,9 +43,10 @@ class Blog extends Component {
         </header>
         {/* <Route path="/" render={() => <h1>Home 2</h1>} /> */}
         <Switch>
-          <Route path='/new-post' component={NewPost} />
+          {1 == 2 ? <Route path='/new-post' component={NewPost} /> : null}
           <Route path='/posts' component={Posts} />
-          <Redirect from='/' to='/posts' />
+          {/* <Redirect from='/' to='/posts' /> */}
+          <Route render={() => <h1>Not found</h1>} />
           {/* <Route path='/:postId' exact component={FullPost} /> */}
         </Switch>
         {/* <section>
