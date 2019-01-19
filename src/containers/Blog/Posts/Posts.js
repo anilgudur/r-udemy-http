@@ -12,6 +12,7 @@ class Posts extends Component {
   };
 
   componentDidMount() {
+    console.log("[Posts] props: ", this.props);
     axiosInstance
       .get("/posts")
       .then(response => {
@@ -49,7 +50,7 @@ class Posts extends Component {
       });
     }
 
-    return <section className="Posts">{posts}</section>;
+    return <section className='Posts'>{posts}</section>;
   }
 }
 

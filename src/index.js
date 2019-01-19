@@ -11,11 +11,11 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
   request => {
-    console.log("[index.js] - request: ", request);
+    //console.log("[index.js] - request: ", request);
     return request;
   },
   error => {
-    console.log("[index.js] - request error: ", error);
+    //console.log("[index.js] - request error: ", error);
     return Promise.reject(error);
   }
 );
