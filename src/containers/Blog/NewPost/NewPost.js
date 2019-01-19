@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./NewPost.css";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class NewPost extends Component {
   state = {
     title: "",
     content: "",
-    author: "Max"
+    author: "Max",
+    isPostSaved: false
   };
 
   savePostHandler() {
@@ -16,14 +18,19 @@ class NewPost extends Component {
       author: this.state.author
     };
     axios.post("/posts", postData).then(response => {
-      this.setState({ fullPostObj: response.data });
+      this.setState({ fullPostObj: response.data, isPostSaved: true });
       //console.log("[NewPost] - savePostHandler - post: ", response);
     });
   }
 
   render() {
+    let redirect = null;
+    if (this.state.isPostSaved) {
+      redirect = <Redirect to='/posts' />;
+    }
     return (
       <div className='NewPost'>
+        {redirect}
         <h1>Add a Post</h1>
         <label>Title</label>
         <input
